@@ -33,9 +33,7 @@ function App() {
   console.log('chars', chars);
   const [states, setStates] = useState([false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]);
   const [moves, setMoves] = useState(0);
-  const [current_card, setCurrentCard] = useState(null);
-  const [current_card_index, setCurrentCardIndex] = useState(null);
-  const [last_card_index, setLastCardIndex] = useState(null);
+  const [cards, setCards] = useState(Array());
   // console.log('current_card', current_card);
   // console.log('current_card_index', current_card_index);
   // console.log('moves', moves);
@@ -45,12 +43,11 @@ function App() {
     setMoves(moves + 1);
     
     console.log('character', character);
-    console.log('current_card', current_card);
-    if (current_card === null) {
+    console.log('cards', cards);
+    if (cards.length === 0) {
       if (character === 'A') {
-          setCurrentCard(character);
-          setCurrentCardIndex(index);
-          return false;
+        setCards([character]);
+        return false;
       } else{
           return true;
       }
@@ -59,29 +56,25 @@ function App() {
       console.log('reset');
       setTimeout(() => {  
         setStates(new Array(30).fill(false));
-        setCurrentCard(null);
-        setCurrentCardIndex(null);
-        setLastCardIndex(null);
+        setCards([]);
         console.log('reset done');
       }, 400);
       return false;
     }
 
     // if character is next in sequence to current_card, then continue, else unflip last 2 cards
-    if (character.charCodeAt(0) === current_card.charCodeAt(0) + 1) {
-      setLastCardIndex(current_card_index)
-      setCurrentCard(character);
-      setCurrentCardIndex(index);
+    if (character.charCodeAt(0) === cards[cards.length - 1].charCodeAt(0) + 1) {
+        setCards([...cards, character]);
       console.log('correct');
         return false;
     } else {
         setTimeout(() => {
           const narray = [...states];
-          narray[index] = false;
-          narray[last_card_index] = false;
+          narray[cards[cards.length - 1].charCodeAt(0) - 65] = false;
+          if (cards.length > 1)
+          narray[cards[cards.length - 2].charCodeAt(0) - 65] = false;
           setStates(narray);
-          setCurrentCardIndex(last_card_index);
-          setCurrentCard(chars[last_card_index]);
+          setCards(cards.slice(0, cards.length - 2) );
         }, 400);
         return true
     }
