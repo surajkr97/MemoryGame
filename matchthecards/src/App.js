@@ -5,21 +5,22 @@ import Header from './Header';
 import { useState } from 'react'
 
 function shuffle(array) {
+  let newarray = [...array];
   let currentIndex = array.length,  randomIndex;
 
   // While there remain elements to shuffle.
-  while (currentIndex != 0) {
+  while (currentIndex !== 0) {
 
     // Pick a remaining element.
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex--;
 
     // And swap it with the current element.
-    [array[currentIndex], array[randomIndex]] = [
-      array[randomIndex], array[currentIndex]];
+    [newarray[currentIndex], newarray[randomIndex]] = [
+      newarray[randomIndex], newarray[currentIndex]];
   }
 
-  return array;
+  return newarray;
 }
 
 var letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 
@@ -28,46 +29,74 @@ var letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
 
 
 function App() {
-  const chars = shuffle(letters);
-
+  const [chars, setChars] = useState(shuffle(letters));
+  console.log('chars', chars);
   const [states, setStates] = useState([false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]);
   const [moves, setMoves] = useState(0);
   const [current_card, setCurrentCard] = useState(null);
+  const [current_card_index, setCurrentCardIndex] = useState(null);
+  const [last_card_index, setLastCardIndex] = useState(null);
+  // console.log('current_card', current_card);
+  // console.log('current_card_index', current_card_index);
+  // console.log('moves', moves);
 
- 
-  function clickCard(character) {
-    console.log('clicked ' + character);
-    return true;
-    if (current_card === null && character === 'A') {
-        setCurrentCard(character);
-        return false;
-    } else if (current_card === null) {
-        return true;
+  function clickCard(index) {
+    const character = chars[index];
+    setMoves(moves + 1);
+    
+    console.log('character', character);
+    console.log('current_card', current_card);
+    if (current_card === null) {
+      if (character === 'A') {
+          setCurrentCard(character);
+          setCurrentCardIndex(index);
+          return false;
+      } else{
+          return true;
+      }
     }
-    if (current_card === '🤡') {
+    if (character === '🤡') {
+      console.log('reset');
+      setTimeout(() => {  
+        setStates(new Array(30).fill(false));
         setCurrentCard(null);
-        return false; 
+        setCurrentCardIndex(null);
+        setLastCardIndex(null);
+        console.log('reset done');
+      }, 400);
+      return false;
     }
-    // if character is next in sequence to current_card
+
+    // if character is next in sequence to current_card, then continue, else unflip last 2 cards
     if (character.charCodeAt(0) === current_card.charCodeAt(0) + 1) {
-        setCurrentCard(character);
+      setLastCardIndex(current_card_index)
+      setCurrentCard(character);
+      setCurrentCardIndex(index);
+      console.log('correct');
         return false;
     } else {
-        setCurrentCard(null);
-        return true;
+        setTimeout(() => {
+          const narray = [...states];
+          narray[index] = false;
+          narray[last_card_index] = false;
+          setStates(narray);
+          setCurrentCardIndex(last_card_index);
+          setCurrentCard(chars[last_card_index]);
+        }, 400);
+        return true
     }
   }
 
   function setCustomState(index, value) {
     console.log('setting ' + index + ' to ' + value);
-    let newStates = states;
+    let newStates = [...states]; // create a copy of the states array
     newStates[index] = value;
     setStates(newStates);
   }
 
   return (
     <>
-      <Header />
+      <Header moves={moves}/>
       <div className='container mx-auto mt-10'>
         <div className="grid grid-cols-10 gap-4">
           <Card character={chars[0]} index={0} states={states} setCustomState={setCustomState} on_click={clickCard}/>
