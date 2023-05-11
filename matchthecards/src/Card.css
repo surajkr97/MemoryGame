@@ -1,0 +1,13 @@
+.card-data{
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.mybgclr{
+    background-image: linear-gradient(to bottom right, #FEA1A1, #F9FBE7);
+}
+
+.mybgclr:hover{
+    /* background-image: linear-gradient(to bottom right, #F9FBE7, #FEA1A1); */
+    transform: rotate(1440Deg) skew(60Deg);
+}
