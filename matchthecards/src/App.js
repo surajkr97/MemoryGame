@@ -70,36 +70,36 @@ function App() {
       <Header />
       <div className='container mx-auto mt-10'>
         <div className="grid grid-cols-10 gap-4">
-          <Card character={chars[0]} index={0} states={states} setCustomStates={setCustomState} on_click={clickCard}/>
-          <Card character={chars[1]} index={1} states={states} setCustomStates={setCustomState} on_click={clickCard}/>
-          <Card character={chars[2]} index={2} states={states} setCustomStates={setCustomState} on_click={clickCard}/>
-          <Card character={chars[3]} index={3} states={states} setCustomStates={setCustomState} on_click={clickCard}/>
-          <Card character={chars[4]} index={4} states={states} setCustomStates={setCustomState} on_click={clickCard}/>
-          <Card character={chars[5]} index={5} states={states} setCustomStates={setCustomState} on_click={clickCard}/>
-          <Card character={chars[6]} index={6} states={states} setCustomStates={setCustomState} on_click={clickCard}/>
-          <Card character={chars[7]} index={7} states={states} setCustomStates={setCustomState} on_click={clickCard}/>
-          <Card character={chars[8]} index={8} states={states} setCustomStates={setCustomState} on_click={clickCard}/>
-          <Card character={chars[9]} index={9} states={states} setCustomStates={setCustomState} on_click={clickCard}/>
-          <Card character={chars[10]} index={10} states={states} setCustomStates={setCustomState} on_click={clickCard}/>
-          <Card character={chars[11]} index={11} states={states} setCustomStates={setCustomState} on_click={clickCard}/>
-          <Card character={chars[12]} index={12} states={states} setCustomStates={setCustomState} on_click={clickCard}/>
-          <Card character={chars[13]} index={13} states={states} setCustomStates={setCustomState} on_click={clickCard}/>
-          <Card character={chars[14]} index={14} states={states} setCustomStates={setCustomState} on_click={clickCard}/>
-          <Card character={chars[15]} index={15} states={states} setCustomStates={setCustomState} on_click={clickCard}/>
-          <Card character={chars[16]} index={16} states={states} setCustomStates={setCustomState} on_click={clickCard}/>
-          <Card character={chars[17]} index={17} states={states} setCustomStates={setCustomState} on_click={clickCard}/>
-          <Card character={chars[18]} index={18} states={states} setCustomStates={setCustomState} on_click={clickCard}/>
-          <Card character={chars[19]} index={19} states={states} setCustomStates={setCustomState} on_click={clickCard}/>
-          <Card character={chars[20]} index={20} states={states} setCustomStates={setCustomState} on_click={clickCard}/>
-          <Card character={chars[21]} index={21} states={states} setCustomStates={setCustomState} on_click={clickCard}/>
-          <Card character={chars[22]} index={22} states={states} setCustomStates={setCustomState} on_click={clickCard}/>
-          <Card character={chars[23]} index={23} states={states} setCustomStates={setCustomState} on_click={clickCard}/>
-          <Card character={chars[24]} index={24} states={states} setCustomStates={setCustomState} on_click={clickCard}/>
-          <Card character={chars[25]} index={25} states={states} setCustomStates={setCustomState} on_click={clickCard}/>
-          <Card character={chars[26]} index={26} states={states} setCustomStates={setCustomState} on_click={clickCard}/>
-          <Card character={chars[27]} index={27} states={states} setCustomStates={setCustomState} on_click={clickCard}/>
-          <Card character={chars[28]} index={28} states={states} setCustomStates={setCustomState} on_click={clickCard}/>
-          <Card character={chars[29]} index={29} states={states} setCustomStates={setCustomState} on_click={clickCard}/>
+          <Card character={chars[0]} index={0} states={states} setCustomState={setCustomState} on_click={clickCard}/>
+          <Card character={chars[1]} index={1} states={states} setCustomState={setCustomState} on_click={clickCard}/>
+          <Card character={chars[2]} index={2} states={states} setCustomState={setCustomState} on_click={clickCard}/>
+          <Card character={chars[3]} index={3} states={states} setCustomState={setCustomState} on_click={clickCard}/>
+          <Card character={chars[4]} index={4} states={states} setCustomState={setCustomState} on_click={clickCard}/>
+          <Card character={chars[5]} index={5} states={states} setCustomState={setCustomState} on_click={clickCard}/>
+          <Card character={chars[6]} index={6} states={states} setCustomState={setCustomState} on_click={clickCard}/>
+          <Card character={chars[7]} index={7} states={states} setCustomState={setCustomState} on_click={clickCard}/>
+          <Card character={chars[8]} index={8} states={states} setCustomState={setCustomState} on_click={clickCard}/>
+          <Card character={chars[9]} index={9} states={states} setCustomState={setCustomState} on_click={clickCard}/>
+          <Card character={chars[10]} index={10} states={states} setCustomState={setCustomState} on_click={clickCard}/>
+          <Card character={chars[11]} index={11} states={states} setCustomState={setCustomState} on_click={clickCard}/>
+          <Card character={chars[12]} index={12} states={states} setCustomState={setCustomState} on_click={clickCard}/>
+          <Card character={chars[13]} index={13} states={states} setCustomState={setCustomState} on_click={clickCard}/>
+          <Card character={chars[14]} index={14} states={states} setCustomState={setCustomState} on_click={clickCard}/>
+          <Card character={chars[15]} index={15} states={states} setCustomState={setCustomState} on_click={clickCard}/>
+          <Card character={chars[16]} index={16} states={states} setCustomState={setCustomState} on_click={clickCard}/>
+          <Card character={chars[17]} index={17} states={states} setCustomState={setCustomState} on_click={clickCard}/>
+          <Card character={chars[18]} index={18} states={states} setCustomState={setCustomState} on_click={clickCard}/>
+          <Card character={chars[19]} index={19} states={states} setCustomState={setCustomState} on_click={clickCard}/>
+          <Card character={chars[20]} index={20} states={states} setCustomState={setCustomState} on_click={clickCard}/>
+          <Card character={chars[21]} index={21} states={states} setCustomState={setCustomState} on_click={clickCard}/>
+          <Card character={chars[22]} index={22} states={states} setCustomState={setCustomState} on_click={clickCard}/>
+          <Card character={chars[23]} index={23} states={states} setCustomState={setCustomState} on_click={clickCard}/>
+          <Card character={chars[24]} index={24} states={states} setCustomState={setCustomState} on_click={clickCard}/>
+          <Card character={chars[25]} index={25} states={states} setCustomState={setCustomState} on_click={clickCard}/>
+          <Card character={chars[26]} index={26} states={states} setCustomState={setCustomState} on_click={clickCard}/>
+          <Card character={chars[27]} index={27} states={states} setCustomState={setCustomState} on_click={clickCard}/>
+          <Card character={chars[28]} index={28} states={states} setCustomState={setCustomState} on_click={clickCard}/>
+          <Card character={chars[29]} index={29} states={states} setCustomState={setCustomState} on_click={clickCard}/>
         </div>
       </div>
     </>

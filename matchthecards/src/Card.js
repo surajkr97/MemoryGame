@@ -5,11 +5,11 @@ import { useEffect, useState } from 'react'
 
 
 export default function Card({ character, on_click, index, states, setCustomState }) {
-    console.log('Card', character, index, states, setCustomState)
-    
+    // console.log('Card', character, index, states, setCustomState)
+
     function flipped() {
         setCustomState(index, !states[index])
-        if (!states[index]) {
+        if (states[index]) {
             if(on_click(character))
             {
                 // after 400 ms, flip the card back
