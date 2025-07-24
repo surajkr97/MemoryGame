@@ -1,6 +1,6 @@
 # 🃏 Memory Game  
 
-A fun and interactive **Memory Card Game** built using **JavaScript, HTML, and CSS**. Flip the cards, match pairs, and test your memory skills!  
+A fun and interactive **Memory Card Game** built using **React, JavaScript, HTML, and CSS**. Flip the cards, match pairs, and test your memory skills!  
 
 ## 🎮 Features  
 - Classic card-matching gameplay  
